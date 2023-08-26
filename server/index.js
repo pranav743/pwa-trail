@@ -5,14 +5,14 @@ const cors = require('cors')
 
 
 app.use(cors({
-    origin: ['https://vercel.com/pranav743/crud-app'],
+    origin: "*",
     methods: ["POST", "GET"],
     credentials: true
 }));
 
 
 app.get('/', (req, res) => {
-  return res.ststus(200).json({msg: "Hello !"});
+  res.json({msg: "hello"});
 });
 app.get('/api/data', (req, res) => {
   const jsonData = {
@@ -23,7 +23,7 @@ app.get('/api/data', (req, res) => {
     ]
   };
 
-  res.json(jsonData);
+  return res.status(200).json(jsonData);
 });
 
 app.listen(PORT, () => {
