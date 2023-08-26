@@ -12,7 +12,24 @@ app.use(cors({
 
 
 app.get('/', (req, res) => {
-  res.json({msg: "hello"});
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Trial Server</title>
+      </head>
+      <body>
+        <h1>Hello, this is a Trial Server</h1>
+        <p>Owner: Pranav</p>
+      </body>
+    </html>
+  `;
+
+  // Set the Content-Type header to indicate that the response is HTML
+  res.setHeader('Content-Type', 'text/html');
+
+  // Send the HTML content as the response body
+  res.send(htmlContent);
 });
 app.get('/api/data', (req, res) => {
   const jsonData = {
