@@ -9,6 +9,11 @@ app.use(cors({
     methods: ["POST", "GET"],
     credentials: true
 }));
+
+
+app.get('/', (req, res) => {
+  return res.ststus(200).json({msg: "Hello !"});
+});
 app.get('/api/data', (req, res) => {
   const jsonData = {
     message: 'Hello from the server!',
